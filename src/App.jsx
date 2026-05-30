@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const TOTAL_FRAMES = 230;
+// Vite's BASE_URL = '/demo-ad/' on GitHub Pages, '/' in local dev
+const BASE = import.meta.env.BASE_URL;
 
 function preloadFrames(onProgress) {
   const images = new Array(TOTAL_FRAMES);
@@ -13,7 +15,7 @@ function preloadFrames(onProgress) {
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image();
       const num = String(i + 1).padStart(3, '0');
-      img.src = `/hero/ezgif-frame-${num}.jpg`;
+      img.src = `${BASE}hero/ezgif-frame-${num}.jpg`;
       img.onload = img.onerror = () => {
         images[i] = img;
         loaded++;
@@ -325,7 +327,7 @@ export default function App() {
         <img
           id="cloud-back"
           className="cloud-layer-img"
-          src="/claud.png"
+          src={`${BASE}claud.png`}
           alt=""
           aria-hidden="true"
           style={{ opacity: 0.55, transform: 'scale(1.3) translateY(15%)' }}
@@ -335,7 +337,7 @@ export default function App() {
         <img
           id="cloud-mid"
           className="cloud-layer-img cloud-tint-rose"
-          src="/claud.png"
+          src={`${BASE}claud.png`}
           alt=""
           aria-hidden="true"
           style={{ opacity: 0.7, transform: 'scale(1.15) translateY(5%) scaleX(-1)' }}
@@ -345,7 +347,7 @@ export default function App() {
         <img
           id="cloud-front"
           className="cloud-layer-img"
-          src="/claud.png"
+          src={`${BASE}claud.png`}
           alt=""
           aria-hidden="true"
           style={{ opacity: 0.9, transform: 'scale(1.05) translateY(0%)' }}
@@ -378,7 +380,7 @@ export default function App() {
       ══════════════════════════════════════════════════ */}
       <section id="lifestyle">
         <div className="lifestyle-sticky">
-          <img ref={lifestyleImgRef} className="lifestyle-img" src="/heroin.png" alt="Nykaa Campaign – Luxury Skincare" />
+          <img ref={lifestyleImgRef} className="lifestyle-img" src={`${BASE}heroin.png`} alt="Nykaa Campaign – Luxury Skincare" />
           <div className="lifestyle-overlay" />
           <div className="lifestyle-sunlight" />
 
@@ -427,7 +429,7 @@ export default function App() {
         <div className="details-grid">
           <div className="details-img-wrap">
             <div className="details-img-card">
-              <img src="/details.png" alt="Nykaa Rosé Glow Boost – Ingredients" />
+              <img src={`${BASE}details.png`} alt="Nykaa Rosé Glow Boost – Ingredients" />
               <div className="details-img-badge">
                 <span className="badge-dot" />
                 <span className="badge-text">100% Vegan Formula</span>
@@ -478,7 +480,7 @@ export default function App() {
             <div className="fp-glow" />
             <div className="fp-ring r1" />
             <div className="fp-ring r2" />
-            <img className="fp-img" src="/hero/ezgif-frame-115.jpg" alt="Nykaa Naturals Face Cream" />
+            <img className="fp-img" src={`${BASE}hero/ezgif-frame-115.jpg`} alt="Nykaa Naturals Face Cream" />
           </div>
 
           <a href="https://www.nykaa.com" target="_blank" rel="noopener noreferrer" className="final-cta">
